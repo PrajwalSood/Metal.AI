@@ -12,7 +12,7 @@ from collections import Counter
 
 
 
-def read_midi(file):
+def read_midi(file, ins = 'Piano'):
     
     print("Loading Music File:",file)
     
@@ -29,7 +29,7 @@ def read_midi(file):
     for part in s2.parts:
     
         #select elements of only piano
-        if 'Piano' in str(part): 
+        if ins in str(part): 
         
             notes_to_parse = part.recurse() 
       
@@ -74,7 +74,7 @@ def note_freq_hist(arr, c = 50):
     print(len(frequent_notes))
     return frequent_notes
 
-def convert_to_midi(prediction_output):
+def convert_to_midi_Piano(prediction_output):
    
     offset = 0
     output_notes = []
